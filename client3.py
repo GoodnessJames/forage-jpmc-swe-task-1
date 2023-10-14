@@ -31,7 +31,7 @@ N = 500
 
 
 def getDataPoint(quote):
-    """ Produce all the needed values to generate a datapoint """
+    """Produce all the needed values to generate a datapoint"""
     stock = quote['stock']
     bid_price = float(quote['top_bid']['price'])
     ask_price = float(quote['top_ask']['price'])
@@ -41,7 +41,7 @@ def getDataPoint(quote):
 
 
 def getRatio(price_a, price_b):
-    """ Get ratio of price_a and price_b """
+    """Get ratio of price_a and price_b"""
     if (price_b == 0):
         """When price_b is 0 avoid throwing ZeroDivisionError"""
         return
@@ -53,7 +53,7 @@ if __name__ == "__main__":
     # Query the price once every N seconds.
     for _ in iter(range(N)):
         quotes = json.loads(urllib.request.urlopen(QUERY.format(random.random())).read())
-        """ Updating getRatio method by implementing a dictionary to retrieve stock price"""
+        """Update getRatio method by implementing a dictionary to retrieve stock price"""
         prices = {}
         for quote in quotes:
             stock, bid_price, ask_price, price = getDataPoint(quote)
